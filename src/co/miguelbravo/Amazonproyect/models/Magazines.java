@@ -1,6 +1,7 @@
 package co.miguelbravo.Amazonproyect.models;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Magazines extends Impreso {
 	
@@ -37,7 +38,20 @@ public class Magazines extends Impreso {
 		this.timeReaders = timeReaders;
 	}
 	
-	
+	public static ArrayList<Magazines> makeMagazineslist(){
+		ArrayList<Magazines> revistas = new ArrayList<Magazines>();
+		String autors [] =new String[5];
+		for (int j = 0; j < autors.length; j++) {
+			autors[j] = "autores" + j;
+		}
+		
+		for (int i = 0; i <=5; i++) {
+			revistas.add(new Magazines("playboy" +i , new Date(i), "luna nueva", autors) );
+		}
+		
+		
+		return revistas;
+	}
 	
 	
 	

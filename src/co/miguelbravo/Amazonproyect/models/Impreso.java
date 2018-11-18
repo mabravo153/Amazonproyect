@@ -9,6 +9,7 @@ public class Impreso {
 	private String editorial;
 	private String[] autors;
 	
+   
 
 	public Impreso(String title, Date editionDate, String editorial, String[] autors) {
 		super();

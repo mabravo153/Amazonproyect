@@ -87,13 +87,14 @@ public class Books extends Impreso implements IVisualizable {
 	
 	public static ArrayList<Books> makeBookslist(){
 		ArrayList<Books> libros = new ArrayList<Books>();
-		String autors [] = {"gabriel garcia marquez", "pablo neruda", "eperanza gomez", "james rodrigues","karol marquez","julieta venegas" };
-		
-		for (int i = 1; i <=6; i++) {
+		String autors[] = new String[3];
+		for (int j = 0; j < 3; j++) {
+			autors[j] = "autor" + j;
+		}
+		for (int i = 0; i <= 5; i++) {
 			libros.add(new Books("book " + i, new Date(i), "planeta" ,autors));
 			
 		}
-		
 		return libros;
 	}
 }
