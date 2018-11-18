@@ -1,0 +1,9 @@
+Genero: genero 1 1
+Titulo: pelicula 11
+Creador: creador 11
+Duracion: 121min 
+Year: 2018Genero: genero 1 5
+Titulo: pelicula 15
+Creador: creador 15
+Duracion: 125min 
+Year: 2022
