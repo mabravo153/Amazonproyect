@@ -70,6 +70,27 @@ public class Movies extends Film implements IVisualizable {
 				return movies;
 	}
 
+
+
+	@Override
+	public void view() {
+		// TODO Auto-generated method stub
+		setViewed(true);
+		
+		//iniciamos_el_conteo
+		Date dateI = startViewed(new Date());
+		
+		for (int i = 0; i < 100; i++) {
+			System.out.println("mira la pelicula");
+		}
+		System.out.println("\n");
+		
+
+		//terminamos_verla
+		stopViewed(dateI, new Date());
+		System.out.println("Viste: " + toString() + "\nDuracion " + getTimeViewed()  );
+	}
+
 	
 	
 }

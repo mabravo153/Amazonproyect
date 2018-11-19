@@ -3,18 +3,17 @@ package co.miguelbravo.Amazonproyect.models;
 import java.util.ArrayList;
 
 public class Series extends Film {
-	
-	private int timeViewed;
+	private int id;
 	private int sessionQuantity;
 	private ArrayList<Chapters> chapter;
 	
 	
 	
-	public Series(String title, String genre, String creator, int duration, short year, int sessionQuantity, ArrayList<Chapters> capitulos) {
+	public Series(String title, String genre, String creator, int duration, short year, int sessionQuantity) {
 		super(title, genre, creator, duration, year);
 		// TODO Auto-generated constructor stub
 		this.sessionQuantity =  sessionQuantity;
-		this.chapter = capitulos;
+		
 	}
 
 	
@@ -44,7 +43,7 @@ public class Series extends Film {
 	public String toString() {
 		// TODO Auto-generated method stub
 		return "Genero: " + getGenre() + "\nTitulo: " + getTitle() + "\nCreador: " + getCreator() + 
-				"\nDuracion: " + getDuration() + "Temporada \nYear: " + getYear()
+				"\nDuracion: " + getDuration() + "\nYear: " + getYear()
 		;
 	}
 	
@@ -53,13 +52,19 @@ public class Series extends Film {
 	ArrayList<Series> series = new ArrayList<Series>(); 
 	
 		for (int i = 0; i <=5 ; i++) {
-			series.add(new Series("titulo" + i, "genero" + i,"creador" + i , 120 + i,(short)(2017+i), i, Chapters.makeChapterslist() ));
+			Series serie = new Series( "titulo " + i, "genero  "+ i, "creador "+i,	1204+ i, ((short)(2015+i)),5);
+			serie.setChapter(Chapters.makeChapterslist(serie));
+			series.add(serie);
 		}
 		
 		return series;
 	}
 	
 
-	
+	@Override
+	public void view() {
+		// TODO Auto-generated method stub
+		setViewed(true);
+	}
 
 }

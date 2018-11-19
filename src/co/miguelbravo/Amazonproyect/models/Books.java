@@ -1,7 +1,7 @@
 package co.miguelbravo.Amazonproyect.models;
 
 import java.security.PublicKey;
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 
 public class Books extends Impreso implements IVisualizable {
@@ -73,17 +73,7 @@ public class Books extends Impreso implements IVisualizable {
 	
 	}
 	
-	
-	public java.util.Date startViewed(java.util.Date dateI) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	public void stopViewed(java.util.Date dateI, java.util.Date dateF) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	
 	public static ArrayList<Books> makeBookslist(){
 		ArrayList<Books> libros = new ArrayList<Books>();
@@ -96,5 +86,19 @@ public class Books extends Impreso implements IVisualizable {
 			
 		}
 		return libros;
+	}
+	
+	public void view () {
+		setReaders(true);
+		
+		Date dateI = startViewed(new  Date());
+		
+		for (int i = 0; i < 1000; i++) {
+			System.out.println("mira la pelicula");
+		}
+		System.out.println("\n");
+		//termina de verla
+		stopViewed(dateI, new Date());
+		System.out.println("Leiste " + toString() + "\nDuracion: " + getTimeReaders() + "\n" );
 	}
 }

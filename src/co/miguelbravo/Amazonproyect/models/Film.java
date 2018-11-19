@@ -1,6 +1,6 @@
 package co.miguelbravo.Amazonproyect.models;
 
-public class Film {
+public abstract class Film {
 	protected int id;
 	private String title;
 	private String genre;
@@ -71,5 +71,5 @@ public class Film {
 		this.viewed = viewed;
 	}
 	
-	
+	public abstract void view();
 }

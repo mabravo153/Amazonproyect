@@ -67,8 +67,7 @@ public class Amazonproyect {
 		movies = Movies.makeMovieslist();
 		
 		do {
-			System.out.println("\n **Pelicula**\n");
-			
+			System.out.println("\n **Pelicula**\n");			
 			for (int i = 0; i < movies.size(); i++) {
 				System.out.println(i+1 + ". "   + movies.get(i).getTitle() + "\nVisto. " + movies.get(i).isViewed()+ "\n");
 			}
@@ -86,20 +85,7 @@ public class Amazonproyect {
 		if (response > 0 ) {
 			//seleccionamos_opcion_de_pelicula_cambiamos_la_opcion_de_Visto
 			Movies movieSelected = movies.get(response - 1);
-			movieSelected.setViewed(true);
-			
-			//iniciamos_el_conteo
-			Date dateI = movieSelected.startViewed(new Date());
-			
-			for (int i = 0; i < 100; i++) {
-				System.out.println("mira la pelicula");
-			}
-			System.out.println("\n");
-			
-
-			//terminamos_verla
-			movieSelected.stopViewed(dateI, new Date());
-			System.out.println("Viste: " + movieSelected + "\nDuracion " + movieSelected.getTimeViewed()  );
+			movieSelected.view();
 			
 		}
 		
@@ -133,17 +119,7 @@ public class Amazonproyect {
 				
 				//seleccionar el libro 
 				Books librosSelected = libros.get(response-1);
-				librosSelected.setReaders(true);
-				
-				Date dateI = librosSelected.startViewed(new  Date());
-				
-				for (int i = 0; i < 1000; i++) {
-					System.out.println("mira la pelicula");
-				}
-				System.out.println("\n");
-				//termina de verla
-				librosSelected.stopViewed(dateI, new Date());
-				System.out.println("Leiste " + librosSelected + "\nDuracion: " + librosSelected.getTimeReaders() + "\n" );
+				librosSelected.view();
 			
 			
 		} while (exit !=0);
@@ -193,27 +169,44 @@ public class Amazonproyect {
 				showSeries();
 			}
 			Chapters chaptersSelected = capituloofSerieselected.get(response - 1);
-			chaptersSelected.setViewed(true);
-			
-			for (int i = 0; i < 10000; i++) {
-				System.out.println("mira la serie");
-			}
-			
-			//inicia el conteo 
-			Date dateI = chaptersSelected.startViewed(new Date());
-			
-			chaptersSelected.stopViewed(dateI, new Date());
-			System.out.println("Viste "+ chaptersSelected.getTitle() + "\nDurante: " + chaptersSelected.getTimeViewed() +
-			"\n"
-			)  ;
+			chaptersSelected.view();
 			
 		} while (exit !=0);
 	}
 	
+	
+	
 	public static void showMagazines() {
 		int exit=0;
+		ArrayList<Magazines> revistas = Magazines.makeMagazineslist();
+		
+		
 		do {
 			System.out.println("\n **Magazines** \n");
+			
+			for (int i = 0; i < revistas.size(); i++) {
+				System.out.println(i+ 1 + " . " + revistas.get(i).getTitle() + " \nVisto"+ revistas.get(i).isReaders() );
+			}
+			System.out.println("0. para regresar");
+			
+			Scanner sc = new Scanner(System.in);	
+			int response = sc.nextInt();
+			
+			if (response == 0) {
+				showMenu();
+			}
+			
+			Magazines revistasselected = revistas.get(response - 1);
+			revistasselected.setReaders(true);
+			
+			Date dateI =revistasselected.startViewed(new Date());
+			for (int i = 0; i < 1000; i++) {
+				System.out.println("mira la revista");
+			}
+			
+			revistasselected.stopViewed(dateI, new Date());
+			
+			
 		} while (exit !=0);
 }
 

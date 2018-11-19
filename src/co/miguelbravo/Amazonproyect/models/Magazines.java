@@ -1,6 +1,6 @@
 package co.miguelbravo.Amazonproyect.models;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 
 public class Magazines extends Impreso {
@@ -25,7 +25,13 @@ public class Magazines extends Impreso {
 		;
 	}
 	
+	public String isReaders() {
+		return (readers)? "visto" : "no visto";
+	}
 	
+	public void setReaders(Boolean readers) {
+		this.readers = readers;
+	}
 	
 	public int getId() {
 		return this.id;
@@ -36,6 +42,24 @@ public class Magazines extends Impreso {
 	}
 	public void setTimeReaders(int timeReaders) {
 		this.timeReaders = timeReaders;
+	}
+	
+	public Date startViewed(Date dateI) {
+		// TODO Auto-generated method stub
+		return dateI;
+	}
+
+
+
+	public void stopViewed(Date dateI, Date dateF) {
+		// TODO Auto-generated method stub
+		
+		if (dateF.getSeconds() < dateI.getSeconds()) {
+			setTimeReaders(dateF.getSeconds() - dateI.getSeconds());
+		}
+		else {
+			setTimeReaders(0);
+		}
 	}
 	
 	public static ArrayList<Magazines> makeMagazineslist(){
@@ -52,8 +76,7 @@ public class Magazines extends Impreso {
 		
 		return revistas;
 	}
-	
-	
-	
-	
+
+
+
 }
